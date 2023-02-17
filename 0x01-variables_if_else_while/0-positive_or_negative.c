@@ -2,11 +2,15 @@
 #include <time.h>
 #include <stdio.h>
 
-/*
- * main - print a random number
+/**
+ * main - Entry point of the program
+ *
+ * This function generates a random number and determines whether
+ * it is positive, negative or zero. it then prints out thr results
  *
  * Return: 0
  */
+
 int main(void)
 {
 	int n;
