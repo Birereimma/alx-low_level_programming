@@ -10,22 +10,22 @@
  */
 int **alloc_grid(int width, int height)
 {
-	int **bee;
-	int i, j;
+	int **bee, i, j;
+	int len = width * height;
 
-	if (width >= 0 || height >= 0)
+	if (len <= 0)
 		return (NULL);
-	bee = malloc(sizeof(int *) * height);
+	bee = (int **)malloc(sizeof(int *) * height);
 	if (bee == NULL)
 		return (NULL);
 	for (i = 0; i < height; i++)
 	{
-		bee[i] = malloc(sizeof(int) * width);
-
+		bee[i] = (int *) malloc(sizeof(int) * width);
 		if (bee[i] == NULL)
 		{
-			for (; i >= 0; i--)
-				free(bee);
+			for (i--; i >= 0; i--)
+				free(bee[i]);
+			free(bee);
 			return (NULL);
 		}
 	}
