@@ -13,34 +13,39 @@
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *result;
+	char *sult;
+	unsigned int lens1, lens2, lensult, i;
 
-/* Handle NULL strings as empty strings
- */
+
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
+	for (lens1 = 0; s1[lens1] != '\0'; lens1++)
+		;
+	for (lens2 = 0; s2[lens2] != '\0'; lens2++)
+		;
 
-/* Adjust n if it is greater than or equal to the length of s2
- */
-	if (n >= strlen(s2))
+	if (n >= lens2)
 	{
-		n = strlen(s2);
+		n = lens2;
 	}
 
-/* Allocate memory for the concatenated string
- */
-	result = malloc(strlen(s1) + n + 1);
+	lensult = lens1 + n;
+	sult = malloc(lensult + 1);
 
-	if (result == NULL)
+	if (sult == NULL)
 	{
 		return (NULL);
 	}
 
-/* Add null terminator to the end of the result
-*/
-	result[strlen(s1) + n] = '\0';
+	for (i = 0; i < lensult; i++)
+		if (i < lens1)
+			sult[i] = s1[i];
+		else
+			sult[i] = s2[i - lens1];
 
-	return (result);
+	sult[i] = '\0';
+
+	return (sult);
 }
