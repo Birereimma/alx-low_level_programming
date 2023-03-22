@@ -39,10 +39,10 @@ void print_name_uppercase(char *name)
 }
 
 /**
- * main - check the code
- *
- * Return: Always 0.
- */
+* main - check the code
+*
+* Return: Always 0.
+*/
 int main(void)
 {
     print_name("Bob", print_name_as_is);
