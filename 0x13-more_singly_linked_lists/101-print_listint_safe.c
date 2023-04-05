@@ -31,7 +31,7 @@ size_t looped_listint_len(const listint_t *head)
 	{
 		if (me == you)
 		{
-			me = you;
+			me = head;
 			while (me != you)
 			{
 				num++;
