@@ -36,18 +36,18 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	if (bytes_read == 0)
 	{
-		free(buffer);
 		fclose(file);
+		free(buffer);
 		return (0);
 	}
 	if (fwrite(buffer, sizeof(char), bytes_read, stdout) != bytes_read)
 	{
-		free(buffer);
 		fclose(file);
+		free(buffer);
 		return (0);
 	}
-	free(buffer);
 	fclose(file);
+	free(buffer);
 
 	return (bytes_read);
 }
